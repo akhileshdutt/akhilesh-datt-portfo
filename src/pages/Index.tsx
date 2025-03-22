@@ -9,6 +9,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ParticleBackground from '@/components/ParticleBackground';
 import { useToast } from '@/hooks/use-toast';
+import { ThreeScene } from '@/components/ThreeScene';
 
 const Index = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -68,6 +69,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-black text-foreground overflow-hidden">
       {isMounted && <ParticleBackground />}
+      <ThreeScene />
       <Navbar />
       <main>
         <Hero />
