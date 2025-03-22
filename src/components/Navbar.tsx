@@ -3,17 +3,14 @@ import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X } from 'lucide-react';
 
-const Navbar = () => {
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+interface NavbarProps {
+  theme: 'dark' | 'light';
+  toggleTheme: () => void;
+}
+
+const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    document.documentElement.classList.toggle('light', newTheme === 'light');
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
-  };
 
   const handleScroll = () => {
     setScrolled(window.scrollY > 20);
@@ -81,6 +78,7 @@ const Navbar = () => {
             size="icon" 
             onClick={toggleTheme} 
             className="mr-2"
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
             {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
@@ -90,6 +88,7 @@ const Navbar = () => {
             size="icon" 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
             className="md:hidden"
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>

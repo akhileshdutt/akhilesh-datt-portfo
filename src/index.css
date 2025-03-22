@@ -75,7 +75,7 @@
   }
 
   .light .glass {
-    @apply backdrop-blur-lg bg-black/5 border border-black/10 shadow-lg;
+    @apply backdrop-blur-lg bg-white/80 border border-black/10 shadow-lg;
   }
 
   .glass-card {
@@ -87,6 +87,10 @@
   }
 
   .text-gradient {
+    @apply bg-gradient-to-r from-cyber-pink via-cyber-purple to-cyber-green bg-clip-text text-transparent;
+  }
+
+  .light .text-gradient {
     @apply bg-gradient-to-r from-cyber-pink via-cyber-purple to-cyber-green bg-clip-text text-transparent;
   }
 

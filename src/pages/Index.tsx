@@ -13,11 +13,19 @@ import { ThreeScene } from '@/components/ThreeScene';
 
 const Index = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const { toast } = useToast();
   
   // Client-side only code
   useEffect(() => {
     setIsMounted(true);
+    
+    // Apply theme from local storage if available
+    const savedTheme = localStorage.getItem('theme') as 'dark' | 'light' | null;
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.classList.toggle('light', savedTheme === 'light');
+    }
     
     // Intersection Observer for scroll animations
     const observer = new IntersectionObserver(
@@ -43,6 +51,13 @@ const Index = () => {
     };
   }, []);
 
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    document.documentElement.classList.toggle('light', newTheme === 'light');
+    localStorage.setItem('theme', newTheme);
+  };
+
   // CV file preparation
   useEffect(() => {
     // Create URL for CV file
@@ -60,17 +75,17 @@ const Index = () => {
   // Don't render anything during SSR or first render
   if (!isMounted) {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-black">
+      <div className="h-screen w-full flex items-center justify-center bg-black dark:bg-black light:bg-white">
         <div className="animate-pulse text-cyber-pink text-xl">Loading portfolio...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black text-foreground overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-hidden">
       {isMounted && <ParticleBackground />}
       <ThreeScene />
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />
         <Projects />

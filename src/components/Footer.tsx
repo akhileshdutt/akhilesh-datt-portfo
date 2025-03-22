@@ -9,6 +9,8 @@ const Footer = () => {
     });
   };
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="py-12 px-6 relative glass border-t border-foreground/5">
       <div className="container mx-auto">
@@ -19,7 +21,7 @@ const Footer = () => {
               A<span className="text-cyber-pink">.</span>Datt
             </h3>
             <p className="text-sm text-foreground/70">
-              &copy; {new Date().getFullYear()} Akhilesh Datt. All rights reserved.
+              &copy; {currentYear} Akhilesh Datt. All rights reserved.
             </p>
           </div>
           
@@ -31,6 +33,7 @@ const Footer = () => {
             <a 
               href="mailto:akhileshdatt093@gmail.com" 
               className="text-sm text-cyber-pink hover:underline"
+              aria-label="Email me"
             >
               akhileshdatt093@gmail.com
             </a>
@@ -43,6 +46,7 @@ const Footer = () => {
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 glass-card hover:bg-cyber-pink/10 transition-all"
+              aria-label="GitHub"
             >
               <Github className="w-5 h-5 text-cyber-pink" />
             </a>
@@ -51,12 +55,14 @@ const Footer = () => {
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 glass-card hover:bg-cyber-pink/10 transition-all"
+              aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5 text-cyber-pink" />
             </a>
             <a 
               href="mailto:akhileshdatt093@gmail.com"
               className="p-2 glass-card hover:bg-cyber-pink/10 transition-all"
+              aria-label="Email"
             >
               <Mail className="w-5 h-5 text-cyber-pink" />
             </a>

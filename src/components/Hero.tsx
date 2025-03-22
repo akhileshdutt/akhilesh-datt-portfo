@@ -2,7 +2,6 @@
 import { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Download, Github, Linkedin } from 'lucide-react';
-import { ThreeScene } from '@/components/ThreeScene';
 
 const Hero = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -51,7 +50,7 @@ const Hero = () => {
   const downloadCV = () => {
     // Create a temporary link element
     const link = document.createElement('a');
-    link.href = '/CV-Akhilesh-Datt.pdf'; // This would be your actual CV path
+    link.href = '/CV-Akhilesh-Datt.pdf'; // Path to CV
     link.download = 'Akhilesh-Datt-CV.pdf';
     document.body.appendChild(link);
     link.click();
@@ -60,22 +59,22 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen w-full flex flex-col justify-center items-center pt-20 pb-10 px-6 relative">
-      <ThreeScene />
       <div 
         ref={sectionRef}
         className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 animate-on-scroll z-10"
       >
         {/* Profile Image & Details */}
         <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-start">
-          <div className="relative mb-8">
-            <div className="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden border-2 border-cyber-pink p-1 glass-card">
+          <div className="relative mb-8 group">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyber-pink via-cyber-purple to-cyber-green blur-md opacity-70 group-hover:opacity-90 transition-opacity animate-rotate-slow"></div>
+            <div className="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden border-2 border-cyber-pink p-1 glass-card relative z-10 shadow-xl">
               <img 
                 src="/lovable-uploads/c25eec6c-e2ee-471a-8308-aab75da29118.png" 
                 alt="Akhilesh Datt" 
                 className="w-full h-full object-cover rounded-full"
               />
             </div>
-            <div className="absolute -bottom-2 -right-2 w-12 h-12 rounded-full bg-cyber-pink flex items-center justify-center animate-pulse">
+            <div className="absolute -bottom-2 -right-2 w-12 h-12 rounded-full bg-cyber-pink flex items-center justify-center animate-pulse z-20">
               <span className="text-white text-xs font-bold">Pro</span>
             </div>
           </div>
@@ -86,6 +85,7 @@ const Hero = () => {
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 glass-card hover:bg-cyber-pink/10 transition-all"
+              aria-label="GitHub Profile"
             >
               <Github className="w-5 h-5 text-cyber-pink" />
             </a>
@@ -94,6 +94,7 @@ const Hero = () => {
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 glass-card hover:bg-cyber-pink/10 transition-all"
+              aria-label="LinkedIn Profile"
             >
               <Linkedin className="w-5 h-5 text-cyber-pink" />
             </a>
