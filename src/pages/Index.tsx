@@ -56,6 +56,13 @@ const Index = () => {
     setTheme(newTheme);
     document.documentElement.classList.toggle('light', newTheme === 'light');
     localStorage.setItem('theme', newTheme);
+    
+    // Show notification when theme changes
+    toast({
+      title: `${newTheme === 'light' ? 'Light' : 'Dark'} mode activated`,
+      description: `Switched to ${newTheme} mode.`,
+      duration: 2000,
+    });
   };
 
   // CV file preparation
@@ -82,7 +89,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-hidden transition-colors duration-300">
       {isMounted && <ParticleBackground />}
       <ThreeScene />
       <Navbar theme={theme} toggleTheme={toggleTheme} />

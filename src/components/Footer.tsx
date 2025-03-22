@@ -32,7 +32,7 @@ const Footer = () => {
             </p>
             <a 
               href="mailto:akhileshdatt093@gmail.com" 
-              className="text-sm text-cyber-pink hover:underline"
+              className="text-sm text-cyber-pink hover:underline transition-all"
               aria-label="Email me"
             >
               akhileshdatt093@gmail.com

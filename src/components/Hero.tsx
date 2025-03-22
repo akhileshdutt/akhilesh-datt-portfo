@@ -69,7 +69,7 @@ const Hero = () => {
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyber-pink via-cyber-purple to-cyber-green blur-md opacity-70 group-hover:opacity-90 transition-opacity animate-rotate-slow"></div>
             <div className="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden border-2 border-cyber-pink p-1 glass-card relative z-10 shadow-xl">
               <img 
-                src="/lovable-uploads/c25eec6c-e2ee-471a-8308-aab75da29118.png" 
+                src="/lovable-uploads/46e90514-fe30-4846-a520-477f3055fe4d.png" 
                 alt="Akhilesh Datt" 
                 className="w-full h-full object-cover rounded-full"
               />
