@@ -11,7 +11,7 @@ function FloatingObjects() {
   
   // Create random positions for objects
   const positions = useMemo(() => {
-    return Array.from({ length: a20 }, (_, i) => ({
+    return Array.from({ length: 20 }, (_, i) => ({
       position: [
         (Math.random() - 0.5) * 15,
         (Math.random() - 0.5) * 15,
