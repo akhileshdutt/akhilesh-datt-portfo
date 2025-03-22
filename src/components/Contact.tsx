@@ -40,36 +40,43 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Create form data
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('message', message);
-      formData.append('to', 'akhilesh.05.dutt@gmail.com');
+      // Prepare form data for submission
+      const formData = {
+        name,
+        email,
+        message,
+        _subject: `Portfolio Contact from ${name}`,
+        _replyto: email
+      };
       
-      // Use a public email sending service (like Formspree, EmailJS, etc)
+      // Submit to Formspree
       const response = await fetch('https://formspree.io/f/moqgvvwa', {
         method: 'POST',
-        body: formData,
+        body: JSON.stringify(formData),
         headers: {
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
         }
       });
       
+      const responseData = await response.json();
+      
       if (response.ok) {
         toast({
-          title: "Message sent!",
+          title: "Message sent successfully!",
           description: "Thank you for your message. I'll get back to you soon.",
           duration: 5000,
         });
         
+        // Clear form fields on success
         setName('');
         setEmail('');
         setMessage('');
       } else {
-        throw new Error('Failed to send message');
+        throw new Error(responseData.error || 'Failed to send message');
       }
     } catch (error) {
+      console.error('Contact form error:', error);
       toast({
         title: "Error sending message",
         description: "Please try again later or contact me directly via email.",
