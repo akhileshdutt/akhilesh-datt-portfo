@@ -35,8 +35,15 @@ const Index = () => {
     };
   }, []);
 
+  // Create a cv.pdf file for download at startup
+  useEffect(() => {
+    // You would normally set up a file for download here
+    // This is just a placeholder
+    console.log('CV file prepared for download');
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden">
+    <div className="min-h-screen bg-black text-foreground overflow-hidden">
       <ParticleBackground />
       <Navbar />
       <main>

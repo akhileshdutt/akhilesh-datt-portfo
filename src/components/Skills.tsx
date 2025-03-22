@@ -32,6 +32,7 @@ const skills: Skill[] = [
       { name: "MongoDB", level: 75 },
       { name: "Firebase", level: 65 },
       { name: "SQL", level: 85 },
+      { name: "NoSQL", level: 75 },
     ],
     icon: <Database className="h-6 w-6" />,
     color: "#10b981"
@@ -43,6 +44,8 @@ const skills: Skill[] = [
       { name: "Ethical Hacking", level: 70 },
       { name: "Cryptography", level: 65 },
       { name: "Security Auditing", level: 75 },
+      { name: "Penetration Testing", level: 70 },
+      { name: "OWASP", level: 75 },
     ],
     icon: <Shield className="h-6 w-6" />,
     color: "#8b5cf6"
@@ -54,6 +57,8 @@ const skills: Skill[] = [
       { name: "Adaptability", level: 85 },
       { name: "Project Management", level: 80 },
       { name: "Problem Solving", level: 90 },
+      { name: "Communication", level: 85 },
+      { name: "Leadership", level: 80 },
     ],
     icon: <Terminal className="h-6 w-6" />,
     color: "#ec4899"
@@ -138,27 +143,27 @@ const Skills = () => {
           </div>
 
           {/* Skills List */}
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {skills.map((category, i) => (
-              <div key={i} className="glass-card p-6 transition-all hover:shadow-lg">
-                <div className="flex items-center mb-4">
+              <div key={i} className="glass-card p-4 transition-all hover:shadow-lg h-full">
+                <div className="flex items-center mb-3">
                   <div 
                     className="p-2 rounded-full mr-3" 
                     style={{ backgroundColor: `${category.color}20` }}
                   >
                     {category.icon}
                   </div>
-                  <h3 className="text-lg font-semibold">{category.category}</h3>
+                  <h3 className="text-base font-semibold">{category.category}</h3>
                 </div>
                 
-                <div className="space-y-4">
-                  {category.skills.map((skill, j) => (
+                <div className="space-y-3">
+                  {category.skills.slice(0, 3).map((skill, j) => (
                     <div key={j}>
                       <div className="flex justify-between mb-1">
-                        <span className="text-sm">{skill.name}</span>
-                        <span className="text-sm text-foreground/70">{skill.level}%</span>
+                        <span className="text-xs">{skill.name}</span>
+                        <span className="text-xs text-foreground/70">{skill.level}%</span>
                       </div>
-                      <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
+                      <div className="w-full h-1.5 bg-secondary rounded-full overflow-hidden">
                         <div 
                           className="h-full rounded-full transition-all duration-1000 ease-out"
                           style={{ 
@@ -174,6 +179,43 @@ const Skills = () => {
               </div>
             ))}
           </div>
+        </div>
+        
+        {/* Additional Skills */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {skills.map((category, i) => (
+            <div key={i} className="glass-card p-4 transition-all hover:shadow-lg">
+              <h3 className="text-base font-semibold mb-3 flex items-center">
+                <div 
+                  className="p-1.5 rounded-full mr-2" 
+                  style={{ backgroundColor: `${category.color}20` }}
+                >
+                  {category.icon}
+                </div>
+                {category.category.split('&')[0]}
+              </h3>
+              
+              <div className="space-y-3">
+                {category.skills.slice(3).map((skill, j) => (
+                  <div key={j}>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-xs">{skill.name}</span>
+                      <span className="text-xs text-foreground/70">{skill.level}%</span>
+                    </div>
+                    <div className="w-full h-1.5 bg-secondary rounded-full overflow-hidden">
+                      <div 
+                        className="h-full rounded-full transition-all duration-1000 ease-out"
+                        style={{ 
+                          width: `${skill.level}%`, 
+                          backgroundColor: category.color,
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

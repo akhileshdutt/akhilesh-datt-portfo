@@ -37,6 +37,26 @@ const Hero = () => {
     }
   };
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      window.scrollTo({
+        top: contactSection.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const downloadCV = () => {
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = '/CV-Akhilesh-Datt.pdf'; // This would be your actual CV path
+    link.download = 'Akhilesh-Datt-CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="home" className="min-h-screen w-full flex flex-col justify-center items-center pt-20 pb-10 px-6 relative">
       <div 
@@ -48,7 +68,7 @@ const Hero = () => {
           <div className="relative mb-8">
             <div className="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden border-2 border-cyber-blue p-1 glass-card">
               <img 
-                src="/lovable-uploads/c25eec6c-e2ee-471a-8308-aab75da29118.png" 
+                src="/lovable-uploads/b090f086-51a4-4ecf-9ec4-51cb4b571acc.png" 
                 alt="Akhilesh Datt" 
                 className="w-full h-full object-cover rounded-full"
               />
@@ -68,7 +88,7 @@ const Hero = () => {
               <Github className="w-5 h-5 text-cyber-blue" />
             </a>
             <a 
-              href="https://linkedin.com/in/Profile" 
+              href="https://linkedin.com/in/akhilesh-datt" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 glass-card hover:bg-cyber-blue/10 transition-all"
@@ -80,6 +100,7 @@ const Hero = () => {
           <Button 
             className="px-6 py-2 glass-card hover:bg-cyber-blue/20 border-cyber-blue/50"
             variant="outline"
+            onClick={downloadCV}
           >
             <Download className="mr-2 h-4 w-4" /> Download CV
           </Button>
@@ -115,12 +136,16 @@ const Hero = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Button className="bg-cyber-blue hover:bg-cyber-blue/90 text-white">
+            <Button 
+              className="bg-cyber-blue hover:bg-cyber-blue/90 text-white"
+              onClick={scrollToContact}
+            >
               Contact Me
             </Button>
             <Button 
               variant="outline" 
               className="border-cyber-blue/30 hover:bg-cyber-blue/10"
+              onClick={scrollToProjects}
             >
               View Projects
             </Button>

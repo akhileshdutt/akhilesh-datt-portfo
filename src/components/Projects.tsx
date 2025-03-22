@@ -1,7 +1,7 @@
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Github, ExternalLink } from 'lucide-react';
+import { ChevronRight, Github, ExternalLink, X } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -43,6 +43,7 @@ const projects: Project[] = [
 
 const Projects = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,6 +65,18 @@ const Projects = () => {
       }
     };
   }, []);
+
+  const viewAllProjects = () => {
+    window.open('https://github.com/Akhilesh-Datt?tab=repositories', '_blank');
+  };
+
+  const viewProjectDetails = (project: Project) => {
+    setSelectedProject(project);
+  };
+
+  const closeProjectDetails = () => {
+    setSelectedProject(null);
+  };
 
   return (
     <section 
@@ -149,6 +162,7 @@ const Projects = () => {
                 <Button
                   variant="ghost"
                   className="text-cyber-blue hover:bg-cyber-blue/10 p-0 h-auto text-sm font-medium"
+                  onClick={() => viewProjectDetails(project)}
                 >
                   View Details <ChevronRight className="ml-1 w-4 h-4" />
                 </Button>
@@ -162,11 +176,76 @@ const Projects = () => {
           <Button 
             variant="outline"
             className="border-cyber-blue/30 hover:bg-cyber-blue/10"
+            onClick={viewAllProjects}
           >
             View All Projects <ChevronRight className="ml-1 w-4 h-4" />
           </Button>
         </div>
       </div>
+
+      {/* Project Details Modal */}
+      {selectedProject && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="w-full max-w-3xl glass-card p-6 md:p-8 animate-fade-in max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-start mb-6">
+              <h2 className="text-2xl font-bold text-gradient">{selectedProject.title}</h2>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={closeProjectDetails}
+                className="hover:bg-cyber-blue/10"
+              >
+                <X className="w-5 h-5" />
+              </Button>
+            </div>
+            
+            <div className="mb-6 rounded-lg overflow-hidden">
+              <img 
+                src={selectedProject.image} 
+                alt={selectedProject.title} 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            
+            <p className="text-foreground/80 mb-6">{selectedProject.description}</p>
+            
+            <div className="flex flex-wrap gap-2 mb-6">
+              {selectedProject.tags.map((tag, index) => (
+                <span 
+                  key={index}
+                  className="text-xs px-2 py-1 glass-card text-foreground/80"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            
+            <div className="flex gap-4">
+              <a 
+                href={selectedProject.githubUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Button className="bg-cyber-blue hover:bg-cyber-blue/90">
+                  <Github className="mr-2 h-4 w-4" /> View Code
+                </Button>
+              </a>
+              
+              {selectedProject.liveUrl && (
+                <a 
+                  href={selectedProject.liveUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline" className="border-cyber-blue/30 hover:bg-cyber-blue/10">
+                    <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                  </Button>
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

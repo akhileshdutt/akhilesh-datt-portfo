@@ -71,7 +71,7 @@
   }
 
   .glass {
-    @apply backdrop-blur-lg bg-white/5 border border-white/10 shadow-lg;
+    @apply backdrop-blur-lg bg-black/25 border border-white/10 shadow-lg;
   }
 
   .light .glass {
