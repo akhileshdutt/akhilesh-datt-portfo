@@ -1,5 +1,5 @@
 
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Sphere, Box, Torus, Float, OrbitControls, Environment } from '@react-three/drei';
 import * as THREE from 'three';
@@ -11,7 +11,7 @@ function FloatingObjects() {
   
   // Create random positions for objects
   const positions = useMemo(() => {
-    return Array.from({ length: 20 }, () => ({
+    return Array.from({ length: a20 }, (_, i) => ({
       position: [
         (Math.random() - 0.5) * 15,
         (Math.random() - 0.5) * 15,
@@ -110,20 +110,27 @@ function FloatingObjects() {
   );
 }
 
+// Create a fallback component to handle errors
+const Fallback = () => {
+  return null; // Simple empty fallback to avoid errors
+};
+
 export const ThreeScene = () => {
   return (
     <div className="absolute inset-0 z-0 opacity-70">
       <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} />
-        <FloatingObjects />
-        <OrbitControls 
-          enabled={false} 
-          enableZoom={false} 
-          enablePan={false} 
-          enableRotate={false} 
-        />
-        <Environment preset="night" />
+        <Suspense fallback={<Fallback />}>
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <FloatingObjects />
+          <OrbitControls 
+            enabled={false} 
+            enableZoom={false} 
+            enablePan={false} 
+            enableRotate={false} 
+          />
+          <Environment preset="night" />
+        </Suspense>
       </Canvas>
     </div>
   );
