@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, FormEvent } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -35,23 +35,50 @@ const Contact = () => {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
-        duration: 5000,
+    try {
+      // Create form data
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('message', message);
+      formData.append('to', 'akhileshdatt093@gmail.com');
+      
+      // Use a public email sending service (like Formspree, EmailJS, etc)
+      const response = await fetch('https://formspree.io/f/moqgvvwa', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
       
-      setName('');
-      setEmail('');
-      setMessage('');
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+          duration: 5000,
+        });
+        
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Error sending message",
+        description: "Please try again later or contact me directly via email.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -88,10 +115,10 @@ const Contact = () => {
                 <div>
                   <h4 className="text-sm font-semibold text-foreground/70 mb-1">Email</h4>
                   <a 
-                    href="mailto:akhilesh.ds.datt@gmail.com" 
+                    href="mailto:akhileshdatt093@gmail.com" 
                     className="text-cyber-pink hover:underline"
                   >
-                    akhilesh.ds.datt@gmail.com
+                    akhileshdatt093@gmail.com
                   </a>
                 </div>
               </div>

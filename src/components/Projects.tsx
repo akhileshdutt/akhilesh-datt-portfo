@@ -1,7 +1,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Github, ExternalLink, X } from 'lucide-react';
+import { ChevronRight, Github, ExternalLink, X, CheckCircle, Radio } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -9,6 +9,8 @@ interface Project {
   description: string;
   image: string;
   tags: string[];
+  features?: string[];
+  technology?: string;
   githubUrl: string;
   liveUrl?: string;
 }
@@ -16,20 +18,31 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: "Portfolio Website",
+    description: "A modern, responsive portfolio website featuring interactive 3D elements, smooth animations, and a sleek dark theme. Built with React, Three.js, TailwindCSS and Typescript for a cybersecurity enthusiast and web developer.",
+    image: "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=2874&auto=format&fit=crop",
+    tags: ["React", "Three.js", "TailwindCSS", "TypeScript"],
+    features: [
+      "Interactive 3D objects using Three.js and React Three Fiber",
+      "Dark mode with pink and black theme",
+      "Responsive design for all device sizes",
+      "Animated section transitions",
+      "Glass-morphic UI elements",
+      "Working contact form",
+      "Project showcase with modal details",
+      "Skills and experience timeline"
+    ],
+    technology: "Built with React, TypeScript, TailwindCSS, Three.js, React Three Fiber, Shadcn/UI components, and Formspree for the contact form.",
+    githubUrl: "https://github.com/Akhilesh-Datt",
+    liveUrl: "https://portfolio-Akhilesh-Datt.netlify.app",
+  },
+  {
+    id: 2,
     title: "Sundown Studio",
     description: "Developed a pixel-perfect clone of the Sundown Studio website using HTML, CSS, JavaScript, and React, ensuring high design fidelity and accurate client vision representation.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
     tags: ["HTML", "CSS", "JavaScript", "React"],
     githubUrl: "https://github.com/Akhilesh-Datt",
-  },
-  {
-    id: 2,
-    title: "Portfolio",
-    description: "Developed a fully responsive and interactive personal portfolio website using HTML, CSS, and JavaScript, showcasing technical skills and design proficiency.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
-    tags: ["HTML", "CSS", "JavaScript"],
-    githubUrl: "https://github.com/Akhilesh-Datt",
-    liveUrl: "https://portfolio-Akhilesh-Datt.netlify.app",
   },
   {
     id: 3,
@@ -89,13 +102,13 @@ const Projects = () => {
       >
         {/* Header */}
         <div className="mb-16 text-center">
-          <span className="text-cyber-blue text-sm uppercase tracking-widest">
+          <span className="text-cyber-pink text-sm uppercase tracking-widest">
             My Work
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2">
             Featured Projects
           </h2>
-          <div className="w-20 h-1 bg-cyber-blue mx-auto mt-4 rounded-full"></div>
+          <div className="w-20 h-1 bg-cyber-pink mx-auto mt-4 rounded-full"></div>
         </div>
 
         {/* Projects Grid */}
@@ -120,7 +133,7 @@ const Projects = () => {
                     href={project.githubUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="w-8 h-8 flex items-center justify-center rounded-full glass hover:bg-cyber-blue/30 transition-all"
+                    className="w-8 h-8 flex items-center justify-center rounded-full glass hover:bg-cyber-pink/30 transition-all"
                   >
                     <Github className="w-4 h-4" />
                   </a>
@@ -129,7 +142,7 @@ const Projects = () => {
                       href={project.liveUrl} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-8 h-8 flex items-center justify-center rounded-full glass hover:bg-cyber-blue/30 transition-all"
+                      className="w-8 h-8 flex items-center justify-center rounded-full glass hover:bg-cyber-pink/30 transition-all"
                     >
                       <ExternalLink className="w-4 h-4" />
                     </a>
@@ -139,7 +152,7 @@ const Projects = () => {
               
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-cyber-blue transition-colors">
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-cyber-pink transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-sm text-foreground/70 mb-4 line-clamp-3">
@@ -161,7 +174,7 @@ const Projects = () => {
                 {/* View Details Button */}
                 <Button
                   variant="ghost"
-                  className="text-cyber-blue hover:bg-cyber-blue/10 p-0 h-auto text-sm font-medium"
+                  className="text-cyber-pink hover:bg-cyber-pink/10 p-0 h-auto text-sm font-medium"
                   onClick={() => viewProjectDetails(project)}
                 >
                   View Details <ChevronRight className="ml-1 w-4 h-4" />
@@ -175,7 +188,7 @@ const Projects = () => {
         <div className="mt-12 text-center">
           <Button 
             variant="outline"
-            className="border-cyber-blue/30 hover:bg-cyber-blue/10"
+            className="border-cyber-pink/30 hover:bg-cyber-pink/10"
             onClick={viewAllProjects}
           >
             View All Projects <ChevronRight className="ml-1 w-4 h-4" />
@@ -193,7 +206,7 @@ const Projects = () => {
                 variant="ghost" 
                 size="icon" 
                 onClick={closeProjectDetails}
-                className="hover:bg-cyber-blue/10"
+                className="hover:bg-cyber-pink/10"
               >
                 <X className="w-5 h-5" />
               </Button>
@@ -208,6 +221,27 @@ const Projects = () => {
             </div>
             
             <p className="text-foreground/80 mb-6">{selectedProject.description}</p>
+            
+            {selectedProject.features && (
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold mb-3">Key Features</h3>
+                <ul className="space-y-2">
+                  {selectedProject.features.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-cyber-pink shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            
+            {selectedProject.technology && (
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold mb-3">Technology Stack</h3>
+                <p className="text-foreground/80">{selectedProject.technology}</p>
+              </div>
+            )}
             
             <div className="flex flex-wrap gap-2 mb-6">
               {selectedProject.tags.map((tag, index) => (
@@ -226,7 +260,7 @@ const Projects = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                <Button className="bg-cyber-blue hover:bg-cyber-blue/90">
+                <Button className="bg-cyber-pink hover:bg-cyber-pink/90">
                   <Github className="mr-2 h-4 w-4" /> View Code
                 </Button>
               </a>
@@ -237,7 +271,7 @@ const Projects = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  <Button variant="outline" className="border-cyber-blue/30 hover:bg-cyber-blue/10">
+                  <Button variant="outline" className="border-cyber-pink/30 hover:bg-cyber-pink/10">
                     <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
                   </Button>
                 </a>

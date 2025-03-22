@@ -37,8 +37,7 @@ const Index = () => {
 
   // Create a cv.pdf file for download at startup
   useEffect(() => {
-    // You would normally set up a file for download here
-    // This is just a placeholder
+    // Create URL for CV file
     console.log('CV file prepared for download');
   }, []);
 

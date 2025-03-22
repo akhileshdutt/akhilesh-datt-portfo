@@ -16,7 +16,7 @@ const Footer = () => {
           {/* Logo and Copyright */}
           <div className="mb-8 md:mb-0 text-center md:text-left">
             <h3 className="text-xl font-mono font-semibold mb-3 text-cyber-green">
-              A<span className="text-cyber-blue">.</span>Datt
+              A<span className="text-cyber-pink">.</span>Datt
             </h3>
             <p className="text-sm text-foreground/70">
               &copy; {new Date().getFullYear()} Akhilesh Datt. All rights reserved.
@@ -29,10 +29,10 @@ const Footer = () => {
               Jalandhar, Punjab, India
             </p>
             <a 
-              href="mailto:akhilesh.ds.datt@gmail.com" 
-              className="text-sm text-cyber-blue hover:underline"
+              href="mailto:akhileshdatt093@gmail.com" 
+              className="text-sm text-cyber-pink hover:underline"
             >
-              akhilesh.ds.datt@gmail.com
+              akhileshdatt093@gmail.com
             </a>
           </div>
           
@@ -42,23 +42,23 @@ const Footer = () => {
               href="https://github.com/Akhilesh-Datt" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 glass-card hover:bg-cyber-blue/10 transition-all"
+              className="p-2 glass-card hover:bg-cyber-pink/10 transition-all"
             >
-              <Github className="w-5 h-5 text-cyber-blue" />
+              <Github className="w-5 h-5 text-cyber-pink" />
             </a>
             <a 
               href="https://linkedin.com/in/Profile" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 glass-card hover:bg-cyber-blue/10 transition-all"
+              className="p-2 glass-card hover:bg-cyber-pink/10 transition-all"
             >
-              <Linkedin className="w-5 h-5 text-cyber-blue" />
+              <Linkedin className="w-5 h-5 text-cyber-pink" />
             </a>
             <a 
-              href="mailto:akhilesh.ds.datt@gmail.com"
-              className="p-2 glass-card hover:bg-cyber-blue/10 transition-all"
+              href="mailto:akhileshdatt093@gmail.com"
+              className="p-2 glass-card hover:bg-cyber-pink/10 transition-all"
             >
-              <Mail className="w-5 h-5 text-cyber-blue" />
+              <Mail className="w-5 h-5 text-cyber-pink" />
             </a>
           </div>
         </div>
@@ -67,10 +67,10 @@ const Footer = () => {
       {/* Scroll to top button */}
       <button 
         onClick={scrollToTop}
-        className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-3 glass-card rounded-full hover:bg-cyber-blue/20 transition-all"
+        className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-3 glass-card rounded-full hover:bg-cyber-pink/20 transition-all"
         aria-label="Scroll to top"
       >
-        <ArrowUp className="w-5 h-5 text-cyber-blue" />
+        <ArrowUp className="w-5 h-5 text-cyber-pink" />
       </button>
     </footer>
   );

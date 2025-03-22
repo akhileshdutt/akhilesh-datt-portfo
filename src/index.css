@@ -13,7 +13,7 @@
     --card-foreground: 210 40% 98%;
     --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
-    --primary: 210 80% 56%;
+    --primary: 330 80% 60%;
     --primary-foreground: 210 40% 98%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -36,7 +36,7 @@
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    --primary: 210 80% 56%;
+    --primary: 330 80% 60%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222 47% 11%;
@@ -87,11 +87,11 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-pink bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-cyber-pink via-cyber-purple to-cyber-green bg-clip-text text-transparent;
   }
 
   .gradient-border {
-    border-image: linear-gradient(to right, #0ea5e9, #8b5cf6, #ec4899);
+    border-image: linear-gradient(to right, #ec4899, #8b5cf6, #10b981);
     border-image-slice: 1;
   }
 
