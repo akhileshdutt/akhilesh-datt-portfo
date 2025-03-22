@@ -8,6 +8,7 @@ interface Skill {
   skills: Array<{ name: string; level: number }>;
   icon: React.ReactNode;
   color: string;
+  lightColor: string;
 }
 
 const skills: Skill[] = [
@@ -22,7 +23,8 @@ const skills: Skill[] = [
       { name: "Node.js", level: 80 },
     ],
     icon: <Code className="h-6 w-6" />,
-    color: "#0ea5e9"
+    color: "#0ea5e9",
+    lightColor: "#0284c7"
   },
   {
     category: "Database & Cloud Computing",
@@ -35,7 +37,8 @@ const skills: Skill[] = [
       { name: "NoSQL", level: 75 },
     ],
     icon: <Database className="h-6 w-6" />,
-    color: "#10b981"
+    color: "#10b981",
+    lightColor: "#059669"
   },
   {
     category: "Cybersecurity",
@@ -48,7 +51,8 @@ const skills: Skill[] = [
       { name: "OWASP", level: 75 },
     ],
     icon: <Shield className="h-6 w-6" />,
-    color: "#8b5cf6"
+    color: "#8b5cf6",
+    lightColor: "#7c3aed"
   },
   {
     category: "Soft Skills",
@@ -61,11 +65,12 @@ const skills: Skill[] = [
       { name: "Leadership", level: 80 },
     ],
     icon: <Terminal className="h-6 w-6" />,
-    color: "#ec4899"
+    color: "#ec4899",
+    lightColor: "#db2777"
   },
 ];
 
-// Data for the radar chart
+// Data for the radar chart - updated with light mode colors
 const radarData = [
   { subject: 'JavaScript', A: 90, fullMark: 100 },
   { subject: 'React', A: 85, fullMark: 100 },
@@ -100,6 +105,9 @@ const Skills = () => {
     };
   }, []);
 
+  // Determine if we're in light mode
+  const isLightMode = document.documentElement.classList.contains('light');
+
   return (
     <section 
       id="skills" 
@@ -126,16 +134,21 @@ const Skills = () => {
             <h3 className="text-xl font-semibold mb-4 text-center">Skill Overview</h3>
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart cx="50%" cy="50%" outerRadius="80%" data={radarData}>
-                <PolarGrid stroke="rgba(255, 255, 255, 0.1)" />
+                <PolarGrid 
+                  stroke={isLightMode ? "rgba(0, 0, 0, 0.2)" : "rgba(255, 255, 255, 0.1)"} 
+                />
                 <PolarAngleAxis 
                   dataKey="subject" 
-                  tick={{ fill: 'rgba(255, 255, 255, 0.7)', fontSize: 12 }} 
+                  tick={{ 
+                    fill: isLightMode ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.7)', 
+                    fontSize: 12 
+                  }} 
                 />
                 <Radar 
                   name="Skills" 
                   dataKey="A" 
-                  stroke="#0ea5e9" 
-                  fill="#0ea5e9" 
+                  stroke={isLightMode ? "#0284c7" : "#0ea5e9"} 
+                  fill={isLightMode ? "#0284c7" : "#0ea5e9"} 
                   fillOpacity={0.3} 
                 />
               </RadarChart>
@@ -149,7 +162,11 @@ const Skills = () => {
                 <div className="flex items-center mb-3">
                   <div 
                     className="p-2 rounded-full mr-3" 
-                    style={{ backgroundColor: `${category.color}20` }}
+                    style={{ 
+                      backgroundColor: isLightMode 
+                        ? `${category.lightColor}20` 
+                        : `${category.color}20` 
+                    }}
                   >
                     {category.icon}
                   </div>
@@ -168,7 +185,7 @@ const Skills = () => {
                           className="h-full rounded-full transition-all duration-1000 ease-out"
                           style={{ 
                             width: `${skill.level}%`, 
-                            backgroundColor: category.color,
+                            backgroundColor: isLightMode ? category.lightColor : category.color,
                             animation: 'animate-shimmer'
                           }}
                         ></div>
@@ -188,7 +205,11 @@ const Skills = () => {
               <h3 className="text-base font-semibold mb-3 flex items-center">
                 <div 
                   className="p-1.5 rounded-full mr-2" 
-                  style={{ backgroundColor: `${category.color}20` }}
+                  style={{ 
+                    backgroundColor: isLightMode 
+                      ? `${category.lightColor}20` 
+                      : `${category.color}20` 
+                  }}
                 >
                   {category.icon}
                 </div>
@@ -207,7 +228,7 @@ const Skills = () => {
                         className="h-full rounded-full transition-all duration-1000 ease-out"
                         style={{ 
                           width: `${skill.level}%`, 
-                          backgroundColor: category.color,
+                          backgroundColor: isLightMode ? category.lightColor : category.color,
                         }}
                       ></div>
                     </div>

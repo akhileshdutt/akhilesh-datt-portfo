@@ -82,7 +82,7 @@ const Index = () => {
   // Don't render anything during SSR or first render
   if (!isMounted) {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-black dark:bg-black light:bg-white">
+      <div className="h-screen w-full flex items-center justify-center bg-background transition-colors duration-300">
         <div className="animate-pulse text-cyber-pink text-xl">Loading portfolio...</div>
       </div>
     );
@@ -93,7 +93,7 @@ const Index = () => {
       {isMounted && <ParticleBackground />}
       <ThreeScene />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <main>
+      <main className="transition-all duration-300">
         <Hero />
         <Projects />
         <Skills />

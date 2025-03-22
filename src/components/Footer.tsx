@@ -31,11 +31,11 @@ const Footer = () => {
               Jalandhar, Punjab, India
             </p>
             <a 
-              href="mailto:akhileshdatt093@gmail.com" 
+              href="mailto:akhilesh.05.dutt@gmail.com" 
               className="text-sm text-cyber-pink hover:underline transition-all"
               aria-label="Email me"
             >
-              akhileshdatt093@gmail.com
+              akhilesh.05.dutt@gmail.com
             </a>
           </div>
           
@@ -60,7 +60,7 @@ const Footer = () => {
               <Linkedin className="w-5 h-5 text-cyber-pink" />
             </a>
             <a 
-              href="mailto:akhileshdatt093@gmail.com"
+              href="mailto:akhilesh.05.dutt@gmail.com"
               className="p-2 glass-card hover:bg-cyber-pink/10 transition-all"
               aria-label="Email"
             >

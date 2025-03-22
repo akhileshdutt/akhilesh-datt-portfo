@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, FormEvent } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 
 const Contact = () => {
@@ -45,7 +45,7 @@ const Contact = () => {
       formData.append('name', name);
       formData.append('email', email);
       formData.append('message', message);
-      formData.append('to', 'akhileshdatt093@gmail.com');
+      formData.append('to', 'akhilesh.05.dutt@gmail.com');
       
       // Use a public email sending service (like Formspree, EmailJS, etc)
       const response = await fetch('https://formspree.io/f/moqgvvwa', {
@@ -115,10 +115,10 @@ const Contact = () => {
                 <div>
                   <h4 className="text-sm font-semibold text-foreground/70 mb-1">Email</h4>
                   <a 
-                    href="mailto:akhileshdatt093@gmail.com" 
-                    className="text-cyber-pink hover:underline"
+                    href="mailto:akhilesh.05.dutt@gmail.com" 
+                    className="text-cyber-pink hover:underline transition-all"
                   >
-                    akhileshdatt093@gmail.com
+                    akhilesh.05.dutt@gmail.com
                   </a>
                 </div>
               </div>
@@ -141,7 +141,7 @@ const Contact = () => {
                   <h4 className="text-sm font-semibold text-foreground/70 mb-1">Phone</h4>
                   <a 
                     href="tel:+919118871435" 
-                    className="text-cyber-pink hover:underline"
+                    className="text-cyber-pink hover:underline transition-all"
                   >
                     +91 9118871435
                   </a>
@@ -202,7 +202,7 @@ const Contact = () => {
               <Button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full bg-cyber-pink hover:bg-cyber-pink/90 text-white flex items-center justify-center gap-2"
+                className="w-full bg-cyber-pink hover:bg-cyber-pink/90 text-white flex items-center justify-center gap-2 transition-all duration-300"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
                 <Send className={`h-4 w-4 ${isSubmitting ? 'animate-pulse' : 'animate-none'}`} />
