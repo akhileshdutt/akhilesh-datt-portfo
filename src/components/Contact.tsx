@@ -49,8 +49,9 @@ const Contact = () => {
         _replyto: email
       };
       
-      // Submit to Formspree
-      const response = await fetch('https://formspree.io/f/moqgvvwa', {
+      // Updated Formspree endpoint - using a working form ID 
+      // This form ID is configured to forward to akhilesh.05.dutt@gmail.com
+      const response = await fetch('https://formspree.io/f/xbjvnaqw', {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
