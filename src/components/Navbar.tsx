@@ -43,7 +43,7 @@ const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
         {/* Logo */}
         <a href="#" className="flex items-center">
           <h1 className="text-xl md:text-2xl font-mono font-semibold text-cyber-green">
-            <span className="text-cyber-pink">Akhilesh</span>Datt
+            <span className="text-cyber-pink">Akhilesh </span>Datt
           </h1>
         </a>
 
