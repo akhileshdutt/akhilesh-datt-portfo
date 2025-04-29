@@ -50,8 +50,8 @@ const Hero = () => {
   const downloadCV = () => {
     // Create a temporary link element
     const link = document.createElement('a');
-    link.href = '/CV-Akhilesh-Datt.pdf'; // Path to CV
-    link.download = 'Akhilesh-Datt-CV.pdf';
+    link.href = '/AkhileshDatt.jpg'; // Path to CV
+    link.download = 'AkhileshDatt.jpg';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -81,7 +81,7 @@ const Hero = () => {
           
           <div className="flex items-center gap-4 mb-6">
             <a 
-              href="https://github.com/Akhilesh-Datt" 
+              href="https://github.com/akhileshdutt" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 glass-card hover:bg-cyber-pink/10 transition-all"
