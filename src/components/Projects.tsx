@@ -34,7 +34,7 @@ const projects: Project[] = [
     ],
     technology: "Built with React, TypeScript, TailwindCSS, Three.js, React Three Fiber, Shadcn/UI components, and Formspree for the contact form.",
     githubUrl: "https://github.com/Akhilesh-Datt",
-    liveUrl: "https://portfolio-Akhilesh-Datt.netlify.app",
+    liveUrl: "https://akhilesh-datt.vercel.app",
   },
   {
     id: 2,
@@ -43,6 +43,7 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
     tags: ["HTML", "CSS", "JavaScript", "React"],
     githubUrl: "https://github.com/Akhilesh-Datt",
+    liveUrl: "https://sundown-akhileshdutts-projects.vercel.app/",
   },
   {
     id: 3,
@@ -80,7 +81,7 @@ const Projects = () => {
   }, []);
 
   const viewAllProjects = () => {
-    window.open('https://github.com/Akhilesh-Datt?tab=repositories', '_blank');
+    window.open('https://github.com/akhileshdutt?tab=repositories', '_blank');
   };
 
   const viewProjectDetails = (project: Project) => {
