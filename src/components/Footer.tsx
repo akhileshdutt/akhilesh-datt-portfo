@@ -42,7 +42,7 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex items-center space-x-4">
             <a 
-              href="https://github.com/Akhilesh-Datt" 
+              href="https://github.com/akhileshdutt" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 glass-card hover:bg-cyber-pink/10 transition-all"
@@ -51,7 +51,7 @@ const Footer = () => {
               <Github className="w-5 h-5 text-cyber-pink" />
             </a>
             <a 
-              href="https://linkedin.com/in/Profile" 
+              href="www.linkedin.com/in/akhilesh-datt" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 glass-card hover:bg-cyber-pink/10 transition-all"
