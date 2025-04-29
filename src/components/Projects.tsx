@@ -33,7 +33,7 @@ const projects: Project[] = [
       "Skills and experience timeline"
     ],
     technology: "Built with React, TypeScript, TailwindCSS, Three.js, React Three Fiber, Shadcn/UI components, and Formspree for the contact form.",
-    githubUrl: "https://github.com/Akhilesh-Datt",
+    githubUrl: "https://github.com/akhileshdutt/akhilesh-datt",
     liveUrl: "https://akhilesh-datt.vercel.app",
   },
   {
@@ -42,7 +42,7 @@ const projects: Project[] = [
     description: "Developed a pixel-perfect clone of the Sundown Studio website using HTML, CSS, JavaScript, and React, ensuring high design fidelity and accurate client vision representation.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
     tags: ["HTML", "CSS", "JavaScript", "React"],
-    githubUrl: "https://github.com/Akhilesh-Datt",
+    githubUrl: "https://github.com/akhileshdutt/Sundown",
     liveUrl: "https://sundown-akhileshdutts-projects.vercel.app/",
   },
   {
@@ -51,7 +51,7 @@ const projects: Project[] = [
     description: "Developed a real-time password strength evaluator using JavaScript, categorizing passwords based on length, complexity (8+ characters, 3+ types), and crack time predictions to enhance security awareness.",
     image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop",
     tags: ["JavaScript", "Security", "UI Design"],
-    githubUrl: "https://github.com/Akhilesh-Datt",
+    githubUrl: "https://github.com/akhileshdutt/Password_evaluation_tool",
   }
 ];
 
