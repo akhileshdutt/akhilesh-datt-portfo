@@ -49,7 +49,7 @@ const Hero = () => {
 
   const downloadCV = () => {
     // Open the CV from Google Drive
-    window.open('https://drive.google.com/uc?export=download&id=1GDwdt97yay13ZUSNOTmuLhYbZisIWzAE', '_blank');
+    window.open('https://drive.google.com/file/d/1GDwdt97yay13ZUSNOTmuLhYbZisIWzAE/view', '_blank');
   };
 
   return (
