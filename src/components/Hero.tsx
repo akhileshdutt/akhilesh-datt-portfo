@@ -48,8 +48,8 @@ const Hero = () => {
   };
 
   const downloadCV = () => {
-    // Open the CV image in a new tab
-    window.open('/lovable-uploads/35d350cc-7cbe-49a7-a93a-e1d3e7f81e7a.png', '_blank');
+    // Open the CV from Google Drive
+    window.open('https://drive.google.com/uc?export=download&id=1GDwdt97yay13ZUSNOTmuLhYbZisIWzAE', '_blank');
   };
 
   return (
