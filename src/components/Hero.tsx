@@ -127,9 +127,6 @@ const Hero = () => {
             <span className="px-3 py-1 text-sm glass-card text-cyber-purple">
               UX/UI Design
             </span>
-            <span className="px-3 py-1 text-sm glass-card text-cyber-pink">
-              Cloud Computing
-            </span>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
