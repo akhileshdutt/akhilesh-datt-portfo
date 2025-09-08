@@ -20,7 +20,7 @@ const skills: Skill[] = [
       { name: "Python", level: 75 },
       { name: "JavaScript", level: 90 },
       { name: "React.js", level: 85 },
-      { name: "Node.js", level: 80 },
+      { name: "PHP", level: 75 },
     ],
     icon: <Code className="h-6 w-6" />,
     color: "#0ea5e9",

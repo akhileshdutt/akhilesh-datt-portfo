@@ -48,13 +48,8 @@ const Hero = () => {
   };
 
   const downloadCV = () => {
-    // Create a temporary link element
-    const link = document.createElement('a');
-    link.href = '/AkhileshDatt.jpg'; // Path to CV
-    link.download = 'AkhileshDatt.jpg';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Open the CV image in a new tab
+    window.open('/lovable-uploads/35d350cc-7cbe-49a7-a93a-e1d3e7f81e7a.png', '_blank');
   };
 
   return (

@@ -18,6 +18,36 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: "Insurance Chatbot",
+    description: "Engineered and deployed a full-stack chatbot application for document-driven Q&A using the MERN stack (React.js, Node.js, Express.js) with a Python FastAPI backend, improving response efficiency by 30%.",
+    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=2000&auto=format&fit=crop",
+    tags: ["React.js", "Node.js", "Python", "FastAPI", "MongoDB", "Express.js"],
+    features: [
+      "Built and optimized a Retrieval-Augmented Generation (RAG) pipeline that parsed and chunked 1,000+ documents",
+      "Generated embeddings using Mistral-7B, performed similarity search with FAISS, and integrated a secure 2-step workflow via REST API proxy",
+      "Implemented and maintained MongoDB for authentication and data persistence",
+      "Securely handling 500+ user credentials with hashed passwords and session management to ensure scalable and reliable access control"
+    ],
+    technology: "Built with MERN stack (React.js, Node.js, Express.js, MongoDB), Python FastAPI backend, Mistral-7B for embeddings, FAISS for similarity search, and secure REST API integration.",
+    githubUrl: "https://github.com/akhileshdutt/Insurance-Chatbot",
+  },
+  {
+    id: 2,
+    title: "Email Verification System",
+    description: "Developed a back-end system in PHP to handle 100+ user registrations with secure email verification codes and an unsubscribe workflow, strengthening user authentication and security practices.",
+    image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?q=80&w=2000&auto=format&fit=crop",
+    tags: ["PHP", "MySQL", "Gmail SMTP", "Backend"],
+    features: [
+      "Integrated Gmail SMTP (via app password) to automate 100% of verification emails",
+      "Ensuring reliable communication and demonstrating expertise in third-party service integration",
+      "Engineered custom back-end logic for persistent user record management",
+      "Optimizing file handling efficiency by 30% and ensuring secure data operations across the workflow"
+    ],
+    technology: "Built with PHP for backend logic, MySQL for data persistence, Gmail SMTP integration for automated email verification, and custom file handling optimization.",
+    githubUrl: "https://github.com/akhileshdutt/Email-verification",
+  },
+  {
+    id: 3,
     title: "Portfolio Website",
     description: "A modern, responsive portfolio website featuring interactive 3D elements, smooth animations, and a sleek dark theme. Built with React, Three.js, TailwindCSS and Typescript for a cybersecurity enthusiast and web developer.",
     image: "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=2874&auto=format&fit=crop",
@@ -37,7 +67,7 @@ const projects: Project[] = [
     liveUrl: "https://akhilesh-datt.vercel.app",
   },
   {
-    id: 2,
+    id: 4,
     title: "Sundown Studio",
     description: "Developed a pixel-perfect clone of the Sundown Studio website using HTML, CSS, JavaScript, and React, ensuring high design fidelity and accurate client vision representation.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
@@ -46,7 +76,7 @@ const projects: Project[] = [
     liveUrl: "https://sundown-akhileshdutts-projects.vercel.app/",
   },
   {
-    id: 3,
+    id: 5,
     title: "Password Strength Checker",
     description: "Developed a real-time password strength evaluator using JavaScript, categorizing passwords based on length, complexity (8+ characters, 3+ types), and crack time predictions to enhance security awareness.",
     image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop",
