@@ -113,14 +113,14 @@ const Hero = () => {
             Akhilesh Datt
           </h1>
           <p className="text-lg md:text-xl text-foreground/80 mb-6 max-w-2xl">
-            A passionate <span className="text-cyber-pink">cybersecurity expert</span> and 
+            A passionate <span className="text-cyber-pink">software developer</span> and 
             <span className="text-cyber-green"> web developer</span> with a focus on building secure, 
             elegant, and user-friendly digital experiences.
           </p>
           
           <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8">
             <span className="px-3 py-1 text-sm glass-card text-cyber-pink">
-              Cybersecurity
+              Software Development
             </span>
             <span className="px-3 py-1 text-sm glass-card text-cyber-green">
               Full Stack
